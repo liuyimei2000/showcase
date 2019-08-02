@@ -1,0 +1,574 @@
+function color001(rune){
+return red(rune);
+}
+ 
+function color002(rune){
+    return color(rune,1,0.3,0);
+}
+ 
+
+function color003(rune){
+    return pink(rune);
+}
+ 
+ function color004(rune){
+    return color(rune,1,0.6,0.6)
+ 
+}
+ 
+function color005(rune){
+    return color(rune,1,0.7,0.8)
+}
+ 
+
+function color6(rune){
+    return color(rune,0.1,0.3,0.4);
+}
+ 
+
+function color007(rune){
+     return indigo(rune);
+}
+ 
+function color008(rune){
+     return blue(rune);
+}
+ 
+function color009(rune){
+    return color(rune,0.1,0.7,0.8)
+}
+ 
+function color010(rune){
+    return color(rune,0.5,0.8,0.85)
+}
+ 
+function color011(rune){
+    return color(rune,0.7,0.9,0.9)
+}
+ 
+
+function color012(rune){
+    return color(rune,0.6,1,0.9)
+}
+ 
+function color013(rune){
+     return brown(rune);
+}
+ 
+function color014(rune){
+     return orange(rune);
+}
+ 
+
+function color015(rune){
+    return color(rune,0.9,0.7,0.1)
+}
+ 
+function color16(rune){
+    return color(rune,0.95,0.65,0.4)
+}
+ 
+function color017(rune){
+    return color(rune,0.9,0.8,0.5)
+}
+ 
+
+function color018(rune){
+    return yellow(rune);
+}
+ 
+
+function color019(rune){
+    return color(rune,1,0.95,0.7);
+}
+ 
+
+function color020(rune){
+    return color(rune,1,0.95,0.8);
+}
+ 
+function color021(rune){
+    return color(rune,1,1,0.9);
+}
+ 
+function color022(rune){
+    return color(rune,0.2,0.5,0.4);
+}
+ 
+function color023(rune){
+     return green(rune);
+}
+  
+function color024(rune){
+    return color(rune,0.6,0.8,0.55);
+}
+ 
+function color025(rune){
+     return purple(rune);
+}
+ 
+ function color026(rune){
+     return white(rune);
+}
+function color027(rune){
+    return color(rune,0.6,0.35,0.6);
+}
+ 
+function color028(rune){
+    return color(rune,0.24,0.15,0.2);
+}
+ 
+function color029(rune){
+    return color(rune, 0.1, 0.8, 0.9);
+}
+ 
+function half_line(){
+    return overlay_frac(1 / 100, 
+                        overlay_frac(1 / 100, 
+                                     overlay_frac(1 / 100, 
+                                                  overlay_frac(1 / 100, 
+                                                              overlay_frac(1 / 100, 
+                                                                            overlay_frac(1 / 100, 
+                                                                                         overlay_frac(1 / 100, 
+                                                                                                      overlay_frac(1 / 100, 
+                                                                                                                  translate(0.94, 0, scale(1 / 16, square)), 
+                                                                                                                  translate(0.82, 0, scale(1 / 16, square))), 
+                                                                                                      translate(0.7, 0, scale(1 / 16, square))),
+                                                                                         translate(0.58, 0, scale(1 / 16, square))), 
+                                                                            translate(0.46, 0, scale(1 / 16, square))), 
+                                                              translate(0.34, 0, scale(1 / 16, square))), 
+                                                  translate(0.22, 0, scale(1 / 16, square))), 
+                                     translate(0.10, 0, scale(1 / 16, square))), 
+                        translate(-0.02, 0, scale(1 / 16, square)));
+}
+ 
+function line(){
+    return overlay_frac(1 / 100, flip_horiz(half_line()), half_line());
+}
+
+function circle5(){
+    return overlay_frac(1 / 100, 
+                        scale(3 / 7, color028(circle)), 
+                        overlay_frac(1 / 100,
+                                     scale(5 / 6, overlay_frac(1 / 100, 
+                                                              scale(7 / 8, overlay_frac(1 / 100, 
+                                                                                         scale(3 / 4, color027(circle)), 
+                                                                                         color028(circle))), 
+                                                              color027(circle))), 
+                                     color028(circle)));
+}
+function cross(){
+    return overlay_frac(1 / 100, quarter_turn_left(line()), line());
+}
+
+show(overlay_frac(1 / 100, 
+                  scale(1 / 14, white(circle)), 
+                  overlay_frac(1 / 100, 
+                  color027(cross()), 
+                  circle5())));
+ 
+function sand_clock(){
+    return stack(translate(0, 0.5, flip_vert(beside(translate(1, 0, flip_horiz(sail)), 
+                                              translate(-1, 0, sail)))), 
+          translate(0, -0.5, beside(translate(1, 0, flip_horiz(sail)), 
+                                     translate(-1, 0, sail))));
+}
+
+function part1(){
+    return overlay_frac(1 / 100, 
+                  scale(9 / 10,overlay_frac(1 / 100, 
+                                          red(sand_clock()), 
+                                          black(circle))), 
+                  red(circle));
+}
+show(overlay_frac(1 / 100, 
+                  translate(0.19, 0.295,rotate(-1.1, scale_independent(1 / 3, 1 / 5, black(line())))), 
+                  overlay_frac(1 / 100, 
+                               translate(-0.19, -0.295,rotate(-1.1, scale_independent(1 / 3, 1 / 5, black(line())))), 
+                               overlay_frac(1 / 100, 
+                                            translate(-0.19, 0.295,rotate(1.1, scale_independent(1 / 3, 1 / 5, black(line())))), 
+                                            overlay_frac(1 / 100, 
+                                                         translate(0.19, -0.295,rotate(1.1, scale_independent(1 / 3, 1 / 5, black(line())))), 
+                                                         overlay_frac(1 / 100, 
+                                                                      translate(0, -0.6, scale_independent(1 / 3, 1 / 5, black(line()))),
+                                                                      overlay_frac(1 / 100, 
+                                                                                   translate(0, 0.6, scale_independent(1 / 3, 1 / 5, black(line()))), 
+                                                                                   part1())))))));
+ 
+
+function picture(){
+    return stack(red(square),yellow(square));
+}
+
+function circle02(){
+    return overlay_frac(1 / 100, 
+                      scale(5 / 6, overlay_frac(1 / 100, 
+                                     scale(14 / 15, color029(circle)), 
+                                     black(circle))), 
+                        stack(red(square), yellow(square))); 
+}
+
+function core(){
+    return overlay_frac(1 / 100, 
+                        translate(-0.47, 0.3, rotate(-1, (scale_independent(0.21, 0.2,black(line()))))), 
+                        overlay_frac(1 / 100, 
+                                     translate(0.47, 0.3, rotate(1, (scale_independent(0.21, 0.2,black(line()))))), 
+                                     overlay_frac(1 / 100, 
+                                                  translate(0, -0.56, rotate(0, (scale_independent(0.21, 0.2,black(line()))))), 
+                                                  overlay_frac(1 / 100, 
+                                                               translate(-0.67, 0.15, rotate(0.1, (scale_independent(0.1, 0.5,black(line()))))), 
+                                                               overlay_frac(1 / 100, 
+                                                                            translate(-0.41, 0.55, rotate(1.15, (scale_independent(0.1, 0.5,black(line()))))), 
+                                                                            overlay_frac(1 / 100, 
+                                                                                         translate(0.67, 0.15, rotate(-0.1, (scale_independent(0.1, 0.5,black(line()))))), 
+                                                                                         overlay_frac(1 / 100, 
+                                                                                                      translate(0.41, 0.55, rotate(-1.15, (scale_independent(0.1, 0.5,black(line()))))), 
+                                                                                                      overlay_frac(1 / 100, 
+                                                                                                                   translate(0.25, -0.64, rotate(1, (scale_independent(0.1, 0.5,black(line()))))), 
+                                                                                                                   overlay_frac(1 / 100, 
+                                                                                                                                translate(-0.25, -0.64, rotate(-1, (scale_independent(0.1, 0.5,black(line()))))), 
+                                                                                                                                overlay_frac(1 / 100, 
+                                                                                                                                             translate(0, 0.5, rotate(-1.55, (scale_independent(0.2, 0.4,black(line()))))), 
+                                                                                                                                             overlay_frac(1 / 100, 
+                                                                                                                                                          translate(0.45, -0.25, rotate(0.5, (scale_independent(0.2, 0.4,black(line()))))), 
+                                                                                                                                                          overlay_frac(1 / 100, 
+                                                                                                                                                                       translate(-0.45, -0.25, rotate(-0.5, (scale_independent(0.2, 0.4,black(line()))))), 
+                                                                                                                                                                       overlay_frac(1 / 100, 
+                                                                                                                                                                                    translate(-0.15, 0.06, rotate(-1, (scale_independent(0.3, 0.5,black(line()))))), 
+                                                                                                                                                                                    overlay_frac(1 / 100, 
+                                                                                                                                                                                                 translate(0.15, 0.06, rotate(1, (scale_independent(0.3, 0.5,black(line()))))), 
+                                                                                                                                                                                                 overlay_frac(1 / 100, 
+                                                                                                                                                                                                              translate(0 , -0.17, scale_independent(0.3, 0.5,black(line()))), 
+                                                                                                                                                                                                              overlay_frac(1 / 100,
+                                                                                                                                                                                                                           translate(-0.4, 0.24, rotate(-1, scale_independent(0.65, 0.4,black(line())))), 
+                                                                                                                                                                                                                           overlay_frac(1 / 100, 
+                                                                                                                                                                                                                                        translate(0.4, 0.24, rotate(1, scale_independent(0.65, 0.4,black(line())))),
+                                                                                                                                                                                                                                        overlay_frac(1 / 100, 
+                                                                                                                                                                                                                                                     translate(0, -0.45, scale_independent(0.65, 0.4,black(line()))), 
+                                                                                                                                                                                                                                                     circle02()))))))))))))))))));
+}
+
+show(core());
+
+function cross(){
+    return overlay_frac(1 / 100, quarter_turn_left(line()), line());
+}
+
+function balabala1(n, rune){
+    return n === 1
+           ?random_color(rune)
+           :stack_frac(1 / n, random_color(rune), balabala1(n - 1, rune));
+}
+
+
+function balabala2(n, rune){
+    return n === 1
+          ?random_color(rune)
+          :beside_frac(1 / n, random_color(rune), balabala2(n - 1, rune));
+}
+
+function geomitry_picture(){
+ return overlay(
+    (overlay(overlay(color(translate(-0.1,0.6,rotate(4/5,scale(1.8,stack(beside(translate(1,0,flip_horiz(sail)),
+                                                                                                     translate(-1,0,sail)),
+                                                                                        blank)))),1,0.6,0.6),
+     translate(0.5,0,yellow(translate(0,-0.3,scale(2/3,circle))))),
+     purple(translate(1,0,scale(2,turn_upside_down(sail)))))),
+     overlay_frac(2/3,blank,purple(square)))
+     ;
+}
+
+function one_by_four_circle(color1,color2){
+    return overlay_frac(1/7,translate(-0.5,-0.5,scale(1/2,white(square))),
+        overlay_frac(1/7,translate(0.5,-0.5,scale(1/2,white(square))),
+        overlay_frac(1/7,translate(0.5,0.5,scale(1/2,white(square))),overlay(color1(circle),color2(square)))
+        )
+        );
+}
+function circle1(color1,color2){
+return scale(2,translate(0.5,-0.5,one_by_four_circle(color1,color2)));
+}
+function circle2(color1,color2){
+return flip_vert(scale(2,translate(0.5,-0.5,one_by_four_circle(color1,color2))));
+}
+function circle3(color1,color2){
+return flip_horiz(scale(2,translate(0.5,-0.5,one_by_four_circle(color1,color2))));
+}
+function circle4(color1,color2){
+return turn_upside_down(scale(2,translate(0.5,-0.5,one_by_four_circle(color1,color2))));
+}
+function stack_square(color1,color2){
+return stack(color1(square),color2(square));
+}
+function semicircle(color1,color2){
+return translate(-1,0,overlay_frac(1/100,translate(-1,0,color1(square)),color2(circle)));
+}
+function beside_square(color1,color2){
+return beside(color1(square),color2(square));
+}
+function triangle(color1,color2){
+return overlay(color1(scale(2,translate(-0.5,0.5,corner))),color2(square));
+}
+
+function up_right(color_stack1,color_stack2,color_circle11,color_circle12,color_circle21,color_circle22,color_circle41,color_circle42){
+return stack(beside(stack_square(color_stack1,color_stack2),
+                    circle1(color_circle11,color_circle12)),
+             beside(circle4(color_circle41,color_circle42),
+                    circle2(color_circle21,color_circle22)));
+}
+
+show(up_right(white,orange_red,khaki,light_blue,blue_green,deongaree,black,light_yellow));
+ 
+function PT(color1,color2,color3,color4){
+    return overlay_frac(1/100,overlay_frac(1/100,
+                                          color3(sail),
+                                          translate(1,0,turn_upside_down(color4(sail)))
+                                          ),
+                              overlay_frac(1/100,
+                                          color2(flip_horiz(sail)),
+                                          translate(-1,0,flip_horiz(turn_upside_down(color1(sail))))
+                                          )
+                        );
+}
+
+function NT(color1,color2,color3,color4){
+    return turn_upside_down(
+                            overlay_frac(1/100,
+                                         overlay_frac(1/100,color3(sail),
+                                         translate(1,0,turn_upside_down(color1(sail)))
+                                         ),
+                            overlay_frac(1/100,
+                                         color2(flip_horiz(sail)),
+                                         translate(-1,0,flip_horiz(turn_upside_down(color4(sail)))))
+                                         )
+                            );
+}
+
+function positive_triangle_line(){
+    return beside_frac(1/3,
+                     beside(beside(PT(white,color004,color004,color003),
+                                  PT(color003,blackish_green,blackish_green,color004)),
+                            beside(PT(color004,white,white,color003),
+                                  PT(color003,light_green,light_green,light_orange)
+                                  )
+                            ),
+                     beside(beside(beside(PT(light_orange,blackish_green,blackish_green,color004),
+                                          PT(color004,color003,color003,white)),
+                                  beside(PT(white,light_orange,light_orange,light_green),
+                                          PT(light_green,blackish_green,blackish_green,color004))),
+                            beside(beside(PT(color004,white,white,blackish_green),
+                                          PT(blackish_green,light_green,light_green,color003)),
+                                  beside(PT(color003,blackish_green,blackish_green,white),
+                                          PT(white,light_green,light_green,white)))
+                          )
+                );
+}
+
+function negative_triangle_line(){ 
+    return beside_frac(1/3,
+                     beside(beside(NT(blackish_green,light_green,light_green,light_orange),
+                                  NT(light_orange,white,white,light_green)
+                                  ),
+                            beside(NT(light_green,blackish_green,blackish_green,light_orange),
+                                  NT(light_orange,white,white,color004)
+                                  )
+                            ),
+                     beside(beside(beside(NT(color004,color003,color003,light_green),
+                                          NT(light_green,light_orange,light_orange,blackish_green)),
+                                  beside(NT(blackish_green,white,white,color004),
+                                          NT(color004,color003,color003,light_orange)
+                                          )
+                                  ),
+                            beside(beside(NT(light_orange,light_green,light_green,color003),
+                                          NT(color003,light_orange,light_orange,white)),
+                                  beside(NT(white,color004,color004,light_orange),
+                                          NT(light_orange,color003,color003,blackish_green)
+                                         )
+                                  )
+                          )
+                  );
+}
+
+function positive_negative_triangle_line(){
+    return stack(positive_triangle_line(),negative_triangle_line());
+}
+
+show(stackn(5,positive_negative_triangle_line()));
+
+function logo_ground(){
+    return overlay_frac(1/100,
+                              scale(2/3,
+                                    translate(0,0.15,
+                                              stack_frac(2/5,
+                                                         blackish_blue(square),
+                                                         beside_frac(4/11,blank,beside_frac(3/7,blackish_blue(square),blank))
+                                                         
+                                                        )
+                                              )
+                                  ),
+                              overlay_frac(1/100,white(scale(23/30,circle)),overlay(blackish_blue(circle),white(square)))
+                              );
+}
+
+function hammer(){
+return rotate(0.5,overlay_frac(1/100,translate(0.52,-0.3,scale(25/96,rotate(1.585,white(line())))),
+                    overlay_frac(1/100,translate(-0.52,-0.3,scale(25/96,rotate(1.585,white(line())))),
+                                    overlay_frac(1/100,
+                                                  translate(0,0.65,rotate(-0.2,scale(3/11,white(line())))),
+                                                    overlay_frac(1/100,
+                                                                  translate(0,0.5,rotate(-0.2,scale(3/11,white(line())))),
+                                                                    overlay_frac(1/100,
+                                                                                  translate(0,0.35,rotate(-0.2,scale(3/11,white(line())))),
+                                                                                    overlay_frac(1/100,
+                                                                                                  translate(0,0.2,rotate(-0.2,scale(3/11,white(line())))),
+                                                                                                    overlay_frac(1/100,
+                                                                                                                  translate(0,0.05,rotate(-0.2,scale(3/11,white(line())))),
+                                                                                                                  logo_ground()
+                                                                                                                  )
+                                                                                                 )
+                                                                                  )
+                                                                  )
+                                                  )
+                
+                            )
+                 ));
+}
+show(hammer());
+ 
+function posi_tria(){
+return scale(4/16,
+            overlay_frac(1/100,
+                                  flip_horiz(sail),
+                                  sail)
+                     
+          );
+}
+
+function nega_tria(){
+return turn_upside_down(
+                      scale(4/16,
+                            overlay_frac(1/100,
+                                         flip_horiz(sail),
+                                         sail)
+                                     
+                            )
+                     );
+}
+
+function line2(){
+return overlay_frac(1/100,
+                    overlay_frac(1/100,
+                                 overlay_frac(1/100,
+                                              translate(-0.25,0,color031(posi_tria())),
+                                              translate(-0.5,0,black(nega_tria()))
+                                              ),
+                                 overlay_frac(1/100,
+                                              translate(0.5,0,color031(nega_tria())),
+                                              translate(0.25,0,black(posi_tria()))
+                                              )
+                                ),
+                    
+                    color002(nega_tria())
+                 );
+}
+
+function up_part(){
+return overlay_frac(1/100,
+                    overlay_frac(1/100,
+                                                    overlay_frac(1/100,
+                                                                    overlay_frac(1/100,
+                                                                                    overlay_frac(1/100,
+                                                                                                    translate(0,-0.24,
+                                                                                                                overlay_frac(1/100,
+                                                                                                                              translate(0,-0.5,color002(posi_tria())),
+                                                                                                                              line2()
+                                                                                                                              )
+                                                                                                              ),
+                                                                                                    translate(-0.25,0.26,black(nega_tria()))
+                                                                                                 ),
+                                                                                    translate(0.25,0.26,color031(nega_tria()))
+                                                                                  ),
+                                                                    translate(-0.75,0.26,color004(nega_tria()))
+                                                                  ),
+                                                    translate(0.75,0.26,color004(nega_tria()))
+                                                  ),
+                    translate(0,0.75,color032(nega_tria()))
+                    );
+                    
+}
+
+function one_part(){
+    return overlay_frac(1/100,
+                      up_part(),
+                      color030(square)
+                      );
+}
+
+function two_parts(){
+    return overlay_frac(1/100,
+                        overlay_frac(1/100,
+                                      translate(0,-0.49,scale(6/12,up_part())),
+                                      translate(0,0.49,scale(6/12,up_part()))
+                                      ),
+                        color030(square)
+                      );
+}
+show(two_parts());
+
+show(one_part());
+ 
+function cone(n,rune){
+    return n===1
+          ?rune
+          :overlay_frac((n-1)/n,scale((n-1)/n,cone(n-1,random_color(rune))),random_color(rune));
+}
+
+function quarter_square_minus_quarter_circle1(){
+return overlay_frac(1/100,
+                  white(circle),
+                  translate(-0.5,-0.5,scale(1/2,(square)))
+                  );
+}
+
+function quarter_square_minus_quarter_circle2(){
+return overlay_frac(1/100,
+                  white(circle),
+                  translate(0.5,0.5,scale(1/2,(square)))
+                  );
+}
+
+show(overlay_frac(4/5,
+                    cone(15,circle),
+                    overlay_frac(1/100,
+                                  quarter_square_minus_quarter_circle1(),
+                                  quarter_square_minus_quarter_circle2()
+                                  )
+                    
+                  )
+    );
+
+function gradual_change(n,rune){
+return stack(beside(
+                  flip_horiz(scale(2,translate(-0.5,0.5,cone(n,rune)))),
+                  scale(2,translate(-0.5,0.5,cone(n,rune)))
+                  ),
+          beside(
+                  turn_upside_down(scale(2,translate(-0.5,0.5,cone(n,rune)))),
+                  flip_vert(scale(2,translate(-0.5,0.5,cone(n,rune))))
+                  )
+          );
+}
+
+show(gradual_change(12,nova));
+ 
+show(repeat_pattern(2,make_cross,gradual_change(12,sail)));
+ 
+function sand_clock(){
+    return stack(translate(0, 0.5, flip_vert(beside(translate(1, 0, flip_horiz(sail)), 
+                                              translate(-1, 0, sail)))), 
+          translate(0, -0.5, beside(translate(1, 0, flip_horiz(sail)), 
+                                     translate(-1, 0, sail))));
+}
+
+show(repeat_pattern(3,make_cross,sail);
+ 
